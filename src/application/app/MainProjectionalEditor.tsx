@@ -2,14 +2,12 @@ import { observable } from "mobx";
 import { observer } from "mobx-react";
 import * as React from "react";
 
-import { MyToolbarComponent } from "./toolbars/MyToolbarComponent";
-import { PiEditorWithToolbar } from "./toolbars/ToolBarDefinition";
-import { MyToolbarItem } from "./toolbars/MyToolbarItem";
-
 import { PiEditor, ProjectionalEditor } from "@projectit/core";
 
+import { MyToolbarComponent } from "./toolbars/MyToolbarComponent";
+import { PiEditorWithToolbar } from "./toolbars/ToolBarDefinition";
 import { DemoEditor } from "./DemoEditor";
-import { TutorialProjection } from "../../editor/TutorialProjection";
+import { DemoProjection } from "../../editor/DemoProjection";
 import { DemoActions } from "../../editor/DemoActions";
 import { DemoContext } from "../../editor/DemoContext";
 
@@ -17,13 +15,6 @@ type Editor = "Demo" ;
 
 @observer
 export class MainProjectionalEditor extends React.Component<any, {}> {
-    toolbar = {
-        mytoolbarItems: [
-            { id: "1", label: "DemoT", onClick: (ed: PiEditor) => (this.editorType = "Demo") },
-        ]
-    };
-
-    @observable editorType: Editor = "Demo";
 
     constructor(props: any) {
         super(props);
@@ -35,9 +26,6 @@ export class MainProjectionalEditor extends React.Component<any, {}> {
             editor = this.demoEditor;
         return (
             <div>
-                {this.toolbar.mytoolbarItems && this.toolbar.mytoolbarItems.length > 0 && (
-                    <MyToolbarComponent editor={editor} toolbar={this.toolbar}/>
-                )}
                 {editor.mytoolbarItems &&
                 (editor.mytoolbarItems.length > 0 && (
                     <MyToolbarComponent editor={editor} toolbar={editor}/>
@@ -54,7 +42,7 @@ export class MainProjectionalEditor extends React.Component<any, {}> {
     initEditors() {
         const demoCtx = new DemoContext();
         const demoActions = new DemoActions();
-        const demoProjection = new TutorialProjection();
+        const demoProjection = new DemoProjection();
         this.demoEditor = new DemoEditor(demoCtx, demoProjection, demoActions);
         demoProjection.setEditor(this.demoEditor);
     }
