@@ -12,7 +12,11 @@ jobs:
         node-version: [8.12.0]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
+      
+    - name: Checkout master
+      run: git checkout master
+      
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install # will run `yarn install` command
