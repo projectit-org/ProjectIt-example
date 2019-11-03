@@ -9,24 +9,26 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@projectit/core@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@projectit/core/-/core-0.0.3.tgz#8ff7eeb28b66cd09aa46cc637ab175f975f0e8b1"
-  integrity sha512-k985DAIgKB/LVvJmF5nQXkI5Vx3DGCRtxRUI3FHCEc/flVA3umxnnU2eyzNO9+Ir5u/e4ZfQaxa3gqJbSinrog==
+"@projectit/core@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@projectit/core/-/core-0.0.4.tgz#7ecc8ddb09bfad4059ed4be900a7aa037c86e269"
+  integrity sha512-4GkHb11+8j55tEQFILHqO5b5pkguWdtzkJle3xfyxpqpG2q1jxqX4McUOBM8ozrWvfzvXekGm4n+ajRX+fa/IQ==
   dependencies:
     classnames "^2.2.5"
+    click-outside "1.0.4"
     mobx "^3.3.1"
     mobx-react "^4.3.3"
     react "^16.8.6"
     react-dom "^16.8.6"
     uuid "^3.3.2"
 
-"@projectit/model@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@projectit/model/-/model-0.0.3.tgz#511574ab44aeb26a75b0df5a70659f0d4193adf7"
-  integrity sha512-RTlT6r5BYhGXm8OXUJmlLJXaSFbQAfUDYVdduyQjg2mT3rN73QNulC0PbRHUOcHiYffsbso3EEgWmHG6Wv0WvA==
+"@projectit/model@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@projectit/model/-/model-0.0.4.tgz#653fcf7d53673e9a29908dd4153ae38776a5f528"
+  integrity sha512-Wov4aw+uzdi2yYU+VV90KnLZjTfO0oyb56ZGFHVO+zZMMHNPydlzaBvtH86Bx9AL+sO3GY97WMhHhnNT42SZxA==
   dependencies:
-    "@projectit/core" "^0.0.3"
+    "@projectit/core" "^0.0.4"
+    reflect-metadata "^0.1.12"
 
 "@types/classnames@^2.2.3":
   version "2.2.9"
