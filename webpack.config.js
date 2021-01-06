@@ -7,20 +7,14 @@ var outPath = path.join(__dirname, './dist');
 
 // plugins
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'development',
   context: sourcePath,
   entry: {
-    main: "./run.ts",
-    vendor: [
-      'react',
-      'react-dom',
-      'react-router',
-      'mobx',
-      'mobx-react',
-      'mobx-react-router'
-    ]
+      // main: "./webapp/run.tsx",
+      main: "./webapp/index.tsx"
   },
   output: {
     path: outPath,
@@ -32,10 +26,17 @@ module.exports = {
       extensions: [".webpack.js", ".web.js", ".js", ".ts", ".tsx", ".json", ".scss", ".css"],
     // Fix webpack's default behavior to not load packages with jsnext:main module
     // (jsnext:main directs not usually distributable es6 format, but es6 sources)
-    mainFields: ['module', 'browser', 'main']
+    // mainFields: ['module', 'browser', 'main']
   },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+
   module: {
-    loaders: [
+    rules: [
       // .ts, .tsx
       {
         test: /\.ts(x?)$/,
@@ -66,35 +67,40 @@ module.exports = {
 
         // css
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              query: {
-                // modules: true, TO MAKE REACT-TABS Style work
-                sourceMap: !isProduction,
-                importLoaders: 1,
-                localIdentName: '[local]__[hash:base64:5]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: [
-                  require('postcss-import')({ addDependencyTo: webpack }),
-                  require('postcss-url')(),
-                  require('postcss-cssnext')(),
-                  require('postcss-reporter')(),
-                  require('postcss-browser-reporter')({ disabled: isProduction }),
-                ]
-              }
-            }
-          ]
-        })
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
+      // {
+      //   test: /\.css$/,
+      //   use: MiniCssExtractPlugin.extract({
+      //
+      //     fallback: 'style-loader',
+      //     use: [
+      //       {
+      //         loader: 'css-loader',
+      //         query: {
+      //           // modules: true, TO MAKE REACT-TABS Style work
+      //           sourceMap: !isProduction,
+      //           importLoaders: 1,
+      //           localIdentName: '[local]__[hash:base64:5]'
+      //         }
+      //       },
+      //       {
+      //         loader: 'postcss-loader',
+      //         options: {
+      //           ident: 'postcss',
+      //           plugins: [
+      //             require('postcss-import')({ addDependencyTo: webpack }),
+      //             require('postcss-url')(),
+      //             require('postcss-cssnext')(),
+      //             require('postcss-reporter')(),
+      //             require('postcss-browser-reporter')({ disabled: isProduction }),
+      //           ]
+      //         }
+      //       }
+      //     ]
+      //   })
+      // },
       // static assets
       { test: /\.html$/, use: 'html-loader' },
         { test: /\.png$/, use: 'url-loader?limit=10000' },
@@ -112,19 +118,9 @@ module.exports = {
         context: sourcePath
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.bundle.js',
-      minChunks: Infinity
-    }),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new ExtractTextPlugin({
-      filename: 'styles.css',
-      disable: !isProduction
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
-      template: 'application/assets/index.html'
+      template: './webapp/assets/index.html'
     })
   ],
   devServer: {
