@@ -55,6 +55,7 @@
   "dependencies": {
     "@projectit/core": "^0.0.5",
     "@projectit/meta": "^0.0.5",
+    "@projectit/server": "^0.0.5",
     "@types/lodash": "4.14.73",
     "@types/history": "^4.7.5",
     "global": "^4.4.0",
