@@ -4,7 +4,7 @@ import { PiEnvironment } from "@projectit/core";
  * The one and only reference to the actual language for which this editor runs
  */
 
-import { EntityEnvironment } from "../../entity/environment/gen/EntityEnvironment";
+import { EntityEnvironment } from "../../picode/environment/gen/EntityEnvironment";
 export const editorEnvironment: PiEnvironment = EntityEnvironment.getInstance();
 
 /**
