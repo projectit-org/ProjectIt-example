@@ -18,10 +18,10 @@ Entity {
     @trigger "entity"
 }
 
-ExModel {
-    @projection Model
+EntityModelUnit {
+    @projection
         [
-        model ${self.name} {
+        model part ${self.name} {
             ${self.entities
                 @vertical
                 @terminator [\n]

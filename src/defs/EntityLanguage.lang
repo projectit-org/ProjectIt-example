@@ -1,11 +1,11 @@
 language Entity
 
-model Demo {
+model EntityModel {
     name: string;
-    models: ExModel[];
+    models: EntityModelUnit[];
 }
 
-public modelunit ExModel {
+public modelunit EntityModelUnit {
     public name: string;
     public entities: Entity[];
     public methods: Method[];
