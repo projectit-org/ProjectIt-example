@@ -2,10 +2,10 @@ language Entity
 
 model EntityModel {
     name: string;
-    models: EntityModelUnit[];
+    models: EntUnit[];
 }
 
-public modelunit EntityModelUnit {
+public modelunit EntUnit {
     public name: string;
     public entities: Entity[];
     public methods: Method[];
