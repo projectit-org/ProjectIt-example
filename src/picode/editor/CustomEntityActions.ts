@@ -29,8 +29,36 @@ export const MANUAL_EXPRESSION_CREATORS: PiExpressionCreator[] = [
     // Add your own custom expression creators here
     {
         trigger: /[0-9]/,
-        activeInBoxRoles: ["PiBinaryExpression-right", "PiBinaryExpression-left", "Method-body", "OrExpression-left", "OrExpression-right",
-            "IfExpression-condition", "IfExpression-whenTrue", "IfExpression-whenFalse", "SumExpression-from", "SumExpression-to", "SumExpression-body", "AbsExpression-expr"],
+        activeInBoxRoles: [
+            "Method-body",
+            "AbsExpression-expr",
+            "SumExpression-from",
+            "SumExpression-to",
+            "SumExpression-body",
+            "IfExpression-condition",
+            "IfExpression-whenTrue",
+            "IfExpression-whenFalse",
+            "PiBinaryExpression-left",
+            "PiBinaryExpression-right",
+            "MultiplyExpression-left",
+            "MultiplyExpression-right",
+            "PlusExpression-left",
+            "PlusExpression-right",
+            "DivideExpression-left",
+            "DivideExpression-right",
+            "AndExpression-left",
+            "AndExpression-right",
+            "OrExpression-left",
+            "OrExpression-right",
+            "ComparisonExpression-left",
+            "ComparisonExpression-right",
+            "LessThenExpression-left",
+            "LessThenExpression-right",
+            "GreaterThenExpression-left",
+            "GreaterThenExpression-right",
+            "EqualsExpression-left",
+            "EqualsExpression-right"
+        ],
         expressionBuilder: (box: Box, trigger: PiTriggerType, editor: PiEditor) => {
             const parent = box.element;
             const x = new NumberLiteralExpression();
