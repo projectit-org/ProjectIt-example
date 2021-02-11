@@ -6,7 +6,7 @@ scoper ExampleScoper for language Entity
 //
 //isnamespace { EntUnit, Entity }
 //
-isnamespace { EntUnit, Entity, Method }
+isnamespace { EntityModelUnit, Entity, Method }
 //
 //isnamespace { EntUnit, Method, Entity, SumExpression }
 //
