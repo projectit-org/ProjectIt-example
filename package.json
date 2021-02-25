@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@projectit/demo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,6 +30,7 @@
     "@types/webpack": "^4.39.2",
     "@types/webpack-env": "^1.14.0",
     "awesome-typescript-loader": "^5.2.1",
+    "@projectit/meta": "^0.1.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^0.28.7",
@@ -53,9 +54,8 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@projectit/core": "^0.1.0",
-    "@projectit/meta": "^0.1.0",
-    "@projectit/server": "^0.1.0",
+    "@projectit/core": "^0.1.1",
+    "@projectit/server": "^0.1.1",
     "@types/lodash": "4.14.73",
     "@types/history": "^4.7.5",
     "global": "^4.4.0",
